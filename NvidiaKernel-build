@@ -1,0 +1,24 @@
+#!/bin/bash
+export ARCH=arm64
+export SUBARCH=arm64
+export HEADER_ARCH=arm64
+export DTC_EXT=dtc
+
+export CROSS_COMPILE="${HOME}/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-gnu-4.9.4/bin/aarch64-linux-gnu-"
+
+dragon() {
+rm -rf out
+
+date="`date +%Y%m%d%H%M%S`"
+export LOCALVERSION=-$date
+zipname="Google_Dragon_Xtreme_Kernel-$date.zip"
+
+make O=out dragon_xtreme_defconfig
+
+make -j$(nproc --all) O=out
+}
+
+if [ "$1" == dragon ]
+then
+dragon
+fi
