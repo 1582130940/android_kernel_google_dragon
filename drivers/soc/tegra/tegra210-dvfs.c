@@ -95,7 +95,7 @@ static struct dvfs cpu_dvfs = {
 /* CPU DVFS tables */
 static unsigned long cpu_max_freq[] = {
 /* speedo_id	0	 1	  2	   3	    4	     5 */
-		1912500, 1912500, 2218500, 1912500, 1632000, 1912500
+		2218500, 2218500, 2218500, 2218500, 2218500, 2218500
 };
 
 #define CPU_FV_TABLE		 \
@@ -142,57 +142,57 @@ static struct cpu_dvfs cpu_fv_dvfs_table[] = {
 	{
 		.speedo_id = 3,
 		.process_id = 0,
-		.min_mv = 830,
+		.min_mv = 818,
 		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 3,
 		.process_id = 1,
-		.min_mv = 830,
+		.min_mv = 818,
 		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 2,
 		.process_id = 0,
-		.min_mv = 804,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 2,
 		.process_id = 1,
-		.min_mv = 804,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 1,
 		.process_id = 0,
-		.min_mv = 837,
+		.min_mv = 818,
 		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 1,
 		.process_id = 1,
-		.min_mv = 837,
+		.min_mv = 818,
 		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 0,
 		.process_id = 0,
-		.min_mv = 850,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 	{
 		.speedo_id = 0,
 		.process_id = 1,
-		.min_mv = 850,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_FV_TABLE,
 	},
 };
@@ -200,7 +200,7 @@ static struct cpu_dvfs cpu_fv_dvfs_table[] = {
 /* CPU LP DVFS tables */
 static unsigned long cpu_lp_max_freq[] = {
 /* speedo_id	0	 1        2        3	    4	    5 */
-		1132800, 1132800, 1132800, 1132800, 940800, 1132800
+		1228800, 1228800, 1228800, 1228800, 1228800, 1228800
 };
 
 #define CPU_LP_FV_TABLE		 \
@@ -231,22 +231,22 @@ static struct cpu_dvfs cpu_lp_fv_dvfs_table[] = {
 	{
 		.speedo_id = 2,
 		.process_id = -1,
-		.min_mv = 804,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_LP_FV_TABLE,
 	},
 	{
 		.speedo_id = 1,
 		.process_id = -1,
-		.min_mv = 837,
+		.min_mv = 818,
 		.max_mv = 1227,
 		CPU_LP_FV_TABLE,
 	},
 	{
 		.speedo_id = -1,
 		.process_id = -1,
-		.min_mv = 850,
-		.max_mv = 1170,
+		.min_mv = 818,
+		.max_mv = 1227,
 		CPU_LP_FV_TABLE,
 	},
 };
