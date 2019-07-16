@@ -634,15 +634,15 @@ endif
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
 
-ifdef CONFIG_READABLE_ASM
+# ifdef CONFIG_READABLE_ASM
 # Disable optimizations that make assembler listings hard to read.
 # reorder blocks reorders the control in the function
 # ipa clone creates specialized cloned functions
 # partial inlining inlines only parts of functions
-KBUILD_CFLAGS += $(call cc-option,-fno-reorder-blocks,) \
-                 $(call cc-option,-fno-ipa-cp-clone,) \
-                 $(call cc-option,-fno-partial-inlining)
-endif
+# KBUILD_CFLAGS += $(call cc-option,-fno-reorder-blocks,) \
+#                  $(call cc-option,-fno-ipa-cp-clone,) \
+#                  $(call cc-option,-fno-partial-inlining)
+# endif
 
 # ifneq ($(CONFIG_FRAME_WARN),0)
 # KBUILD_CFLAGS += $(call cc-option,-Wframe-larger-than=${CONFIG_FRAME_WARN})
@@ -709,6 +709,7 @@ KBUILD_CFLAGS += $(call cc-option, -mno-global-merge,)
 KBUILD_CFLAGS += $(call cc-option, -fcatch-undefined-behavior)
 else
 
+KBUILD_CFLAGS += $(call cc-option,-fno-delete-null-pointer-checks,)
 # This warning generated too much noise in a regular build.
 # Use make W=1 to enable this warning (see scripts/Makefile.build)
 KBUILD_CFLAGS += $(call cc-disable-warning, unused-variable)
@@ -733,11 +734,11 @@ KBUILD_CFLAGS   += $(call cc-option, -fno-var-tracking-assignments)
 
 ifdef CONFIG_DEBUG_INFO
 ifdef CONFIG_DEBUG_INFO_SPLIT
-KBUILD_CFLAGS   += $(call cc-option, -gsplit-dwarf, -g)
+KBUILD_CFLAGS   += $(call cc-option, -gsplit-dwarf, -g0)
 else
-KBUILD_CFLAGS	+= -g
+KBUILD_CFLAGS	+= -g0
 endif
-KBUILD_AFLAGS	+= -Wa,-gdwarf-2
+KBUILD_AFLAGS	+= -Wa,-g0
 endif
 ifdef CONFIG_DEBUG_INFO_DWARF4
 KBUILD_CFLAGS	+= $(call cc-option, -gdwarf-4,)
